@@ -86,6 +86,13 @@ public void serUp() {
         boolean result = userRegistration.validateMobileNumber("1234507748");
         Assert.assertFalse(result);
     }
+    @Test
+    public void givenPassword_WhenMin8Chars_ShouldReturnTrue() {
+        boolean actual = userRegistration.validatePassword("nDDj1k2*jf");
+        Assert.assertTrue(actual);
+    }
+
+
 
 
 }
