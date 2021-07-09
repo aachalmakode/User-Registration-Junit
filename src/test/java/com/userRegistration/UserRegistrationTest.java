@@ -97,7 +97,16 @@ public void serUp() {
         boolean actual = userRegistration.validatePassword("3Rmdg*n");
         Assert.assertTrue(actual);
     }
-
+    @Test
+    public void givenPassword_WhenAtleast1Number_ShouldReturnTrue() {
+        boolean actual = userRegistration.validatePassword("Mas8bt&Bx");
+        Assert.assertTrue(actual);
+    }
+    @Test
+    public void givenPassword_WhenNoNumeric_ShouldReturnFalse() {
+        boolean actual = userRegistration.validatePassword("mDkk%fDB");
+        Assert.assertFalse(actual);
+    }
 
 
 
