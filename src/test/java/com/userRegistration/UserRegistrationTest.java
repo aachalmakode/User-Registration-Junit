@@ -61,7 +61,7 @@ public void serUp() {
     }
     @Test
     public void givenEmailId_WhenProper_ShouldReturnTrue(){
-        boolean actual = userRegistration.validateEmailId("aachal@mako.co.in");
+        boolean actual = userRegistration.validateEmailId("aachal.lk@mako.co.in");
         Assert.assertTrue(actual);
     }
 
