@@ -24,5 +24,14 @@ public class UserRegistration {
             System.out.println("Name should start with capital letter and need min 3 characters.");
         return false;
     }
+    static boolean validateEmailId(String email) {
+        String emailRegex = "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-z]{2,4})?$";
 
+        if (Pattern.compile(emailRegex).matcher(email).matches())
+            System.out.println("Valid");
+        else
+            System.out.println("Invalid email id");
+
+        return false;
+    }
 }

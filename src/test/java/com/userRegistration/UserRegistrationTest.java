@@ -16,13 +16,13 @@ public void serUp() {
 }
     @Test
     public void givenFirstName_WhenFirstLatterUpperCase_ShouldReturnTrue() {
-        boolean actual = this.userRegistration.validateFirstName("Aachal");
+        boolean actual = this.userRegistration.validateFirstName("Aaaaaaa");
         Assert.assertTrue(actual);
     }
 
     @Test
     public void givenFirstName_WhenLessThanThreeChars_ShouldReturnFalse() {
-        boolean actual = this.userRegistration.validateFirstName("aa");
+        boolean actual = this.userRegistration.validateFirstName("Ayyyya");
         Assert.assertFalse(actual);
     }
 
@@ -38,7 +38,7 @@ public void serUp() {
         Assert.assertFalse(actual);
     }
     @Test
-    public void givenLastName_WhenLasttLatterUpperCase_ShouldReturnTrue() {
+    public void givenLastName_WhenLastLatterUpperCase_ShouldReturnTrue() {
         boolean actual = this.userRegistration.validateLastName("Mako");
         Assert.assertTrue(actual);
     }
@@ -58,6 +58,11 @@ public void serUp() {
     public void givenLastName_WhenHasSpecialChar_ShouldReturnFalse() {
         boolean actual = userRegistration.validateFirstName("Mako@");
         Assert.assertFalse(actual);
+    }
+    @Test
+    public void givenEmailId_WhenProper_ShouldReturnTrue(){
+        boolean actual = userRegistration.validateEmailId("aachal@mako.co.in");
+        Assert.assertTrue(actual);
     }
 
 }
