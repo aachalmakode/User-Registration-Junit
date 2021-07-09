@@ -34,4 +34,16 @@ public class UserRegistration {
 
         return false;
     }
+
+    static boolean validateMobileNumber(String number) {
+        String mobNoRegex = "^(\\+91[\\-\\s]?)?[0]?(91)?[789]\\d{9}$";
+
+        if (Pattern.compile(mobNoRegex).matcher(number).matches())
+            System.out.println("Valid");
+        else
+            System.out.println("Mobile number should contain country code follow by space and 10 digit number.");
+
+        return false;
+    }
+
 }

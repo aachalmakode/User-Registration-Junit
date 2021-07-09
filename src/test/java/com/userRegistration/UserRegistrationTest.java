@@ -64,5 +64,28 @@ public void serUp() {
         boolean actual = userRegistration.validateEmailId("aachal.lk@mako.co.in");
         Assert.assertTrue(actual);
     }
+    @Test
+    public void givenMobileNum_WhenSpaceIsMentioned_ShouldReturnTrue(){
+        boolean actual = userRegistration.validateMobileNumber("91 992223277499");
+        Assert.assertTrue(actual);
+    }
+    @Test
+    public void givenMobileNum_WhenSpaceNotMentioned_ShouldReturnFalse() {
+        boolean actual = userRegistration.validateMobileNumber("919960077482");
+        Assert.assertFalse(actual);
+    }
+
+    @Test
+    public void givenMobileNum_WhenLessDigits_ShouldReturnFalse() {
+        boolean actual = userRegistration.validateMobileNumber("9960077482");
+        Assert.assertFalse(actual);
+    }
+
+    @Test
+    public void givenMobileNum_WhenNotStartWith91_ShouldReturnFalse() {
+        boolean result = userRegistration.validateMobileNumber("1234507748");
+        Assert.assertFalse(result);
+    }
+
 
 }
