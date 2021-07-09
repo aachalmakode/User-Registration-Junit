@@ -92,6 +92,12 @@ public void serUp() {
         Assert.assertTrue(actual);
     }
 
+    @Test
+    public void givenPassword_WhenAtleast1UpperCase_ShouldReturnTrue() {
+        boolean actual = userRegistration.validatePassword("3Rmdg*n");
+        Assert.assertTrue(actual);
+    }
+
 
 
 

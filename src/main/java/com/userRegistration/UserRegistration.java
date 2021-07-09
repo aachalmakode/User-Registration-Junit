@@ -67,4 +67,26 @@ public class UserRegistration {
 
         return false;
     }
+
+    static boolean validatePassword2(String password) {
+        String passwordRegex = "^(?=.*[A-Z]+)(?=.*[0-9]+).{8,}$";
+
+
+
+        if (Pattern.compile(passwordRegex).matcher(password).matches() &&
+
+                Pattern.compile(".[A-Z].").matcher(password).matches() &&
+                Pattern.compile(".[0-9].").matcher(password).matches() &&
+
+               password.length() - password.replaceAll("\\W", "").length() == 1)
+
+            System.out.println("Valid");
+
+
+        else
+
+            System.out.println("Password should atleast 1 upper case");
+        return false;
+    }
+
 }
