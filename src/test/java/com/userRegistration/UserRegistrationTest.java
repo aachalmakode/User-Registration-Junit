@@ -108,6 +108,20 @@ public void serUp() {
         Assert.assertFalse(actual);
     }
 
-
-
+    @Test
+    public void givenPassword_WhenHasExact1SpecialChar_ShouldReturnTrue() {
+        boolean actual = userRegistration.validatePassword("mDkk%fD1");
+        Assert.assertTrue(actual);
+    }
+    @Test
+    public void givenPassword_WhenNoSpecialChar_ShouldReturnFlase() {
+        boolean actual = userRegistration.validatePassword("mDkkfD12");
+        Assert.assertFalse(actual);
+    }
+    @Test
+    public void givenPassword_WhenHasMoreThan1SpecialChar_ShouldReturnFalse() {
+        boolean actual = userRegistration.validatePassword("jjDkk@fee1");
+        Assert.assertFalse(actual);
+    }
 }
+
