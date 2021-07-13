@@ -46,7 +46,7 @@ public class UserRegistration {
 
         return false;
     }
-
+    //passwords rule1
     static boolean validatePassword(String password) {
         String passwordRegex = "^(?=.*[A-Z]+)(?=.*[0-9]+).{8,}$";
 
@@ -68,7 +68,7 @@ public class UserRegistration {
         return false;
     }
 
-
+    //passwords rule2
     static boolean validatePassword2(String password) {
         String passwordRegex = "^(?=.*[A-Z]+)(?=.*[0-9]+).{8,}$";
 
@@ -76,7 +76,7 @@ public class UserRegistration {
         if (Pattern.compile(passwordRegex).matcher(password).matches() &&
 
                 Pattern.compile(".[A-Z].").matcher(password).matches() &&
-                Pattern.compile(".[0-9].").matcher(password).matches() &&
+                Pattern.compile(".[a-z].").matcher(password).matches() &&
 
                 password.length() - password.replaceAll("\\W", "").length() == 1)
 
@@ -88,7 +88,7 @@ public class UserRegistration {
             System.out.println("Password should atleast 1 upper case");
         return false;
     }
-
+    //passwords rule3
     static boolean validatePassword3(String password) {
         String passwordRegex = "^(?=.*[A-Z]+)(?=.*[0-9]+).{8,}$";
 
@@ -108,7 +108,7 @@ public class UserRegistration {
             System.out.println("Password should atleast 1 numeric");
         return false;
     }
-
+    //passwords rule4
     static boolean vaildatePassword4(String password) {
         String passwordRegex = "^(?=.*[A-Z]+)(?=.*[0-9]+).{8,}$";
 
@@ -125,7 +125,7 @@ public class UserRegistration {
 
         else
 
-            System.out.println("Password should atleast 1 numeric");
+            System.out.println("Password must have 1 special char ");
         return false;
     }
 }

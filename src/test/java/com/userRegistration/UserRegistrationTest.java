@@ -10,10 +10,12 @@ public class UserRegistrationTest {
     private UserRegistration userRegistration;
 
     @Before
-public void serUp() {
+public void setUp() {
 
     userRegistration = new UserRegistration();
 }
+
+//first name
     @Test
     public void givenFirstName_WhenFirstLatterUpperCase_ShouldReturnTrue() {
         boolean actual = this.userRegistration.validateFirstName("Aaaaaaa");
@@ -37,6 +39,7 @@ public void serUp() {
         boolean actual = this.userRegistration.validateFirstName("Aachal@");
         Assert.assertFalse(actual);
     }
+    //last name
     @Test
     public void givenLastName_WhenLastLatterUpperCase_ShouldReturnTrue() {
         boolean actual = this.userRegistration.validateLastName("Mako");
@@ -59,11 +62,14 @@ public void serUp() {
         boolean actual = userRegistration.validateFirstName("Mako@");
         Assert.assertFalse(actual);
     }
+
+    //email
     @Test
     public void givenEmailId_WhenProper_ShouldReturnTrue(){
         boolean actual = userRegistration.validateEmailId("aachal.lk@mako.co.in");
         Assert.assertTrue(actual);
     }
+    //mobile number
     @Test
     public void givenMobileNum_WhenSpaceIsMentioned_ShouldReturnTrue(){
         boolean actual = userRegistration.validateMobileNumber("91 992223277499");
@@ -86,6 +92,8 @@ public void serUp() {
         boolean result = userRegistration.validateMobileNumber("1234507748");
         Assert.assertFalse(result);
     }
+
+    //passwords rule1
     @Test
     public void givenPassword_WhenMin8Chars_ShouldReturnTrue() {
         boolean actual = userRegistration.validatePassword("nDDj1k2*jf");
