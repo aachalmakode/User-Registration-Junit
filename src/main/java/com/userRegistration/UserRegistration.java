@@ -5,127 +5,43 @@ import java.util.regex.Pattern;
 public class UserRegistration {
 
 
-    static boolean validateFirstName(String name) {
-        String nameRegex = "^[A-Z][a-z]{2,}$";
-        if (Pattern.compile(nameRegex).matcher(name).matches())
-            System.out.println("Valid");
-        else
+        public boolean CheckFirstName(String firstName) throws UserRegistrationException {
 
-            System.out.println("Name should start with capital letter and need min 3 characters.");
-        return false;
+            if (firstName.matches("^[A-Z]{1}[a-z]{2,}$"))
+                return true;
+            else
+                throw new UserRegistrationException ("Invalid First Name");
+        }
+
+        public boolean CheckLastName(String lastName) throws  UserRegistrationException {
+
+            if (lastName.matches("^[A-Z]{1}[a-z]{2,}$"))
+                return true;
+            else
+                throw new UserRegistrationException ("Invalid last Name");
+        }
+
+        public boolean Email(String email) throws  UserRegistrationException{
+
+            if (email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"))
+                return true;
+            else
+                throw new  UserRegistrationException("Invalid Email");
+        }
+
+        public boolean PhoneNumber(String phoneNumber) throws  UserRegistrationException{
+
+            if (phoneNumber.matches("^(\\+?\\d{1,4}[\\s-])?(?!0+\\s+,?$)\\d{10}\\s*,?$"))
+                return true;
+            else
+                throw new  UserRegistrationException("Invalid Phone Number");
+        }
+
+        public boolean Password(String password) throws   UserRegistrationException{
+
+            if (password.matches("^(?=.*[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])[A-Za-z0-9!@#$%^&*?]{8,}$"))
+                return true;
+            else
+                throw new  UserRegistrationException("Invalid Password");
+        }
     }
-
-    static boolean validateLastName(String name) {
-        String nameRegex = "^[A-Z][a-z]{2,}$";
-        if (Pattern.compile(nameRegex).matcher(name).matches())
-            System.out.println("Valid");
-        else
-
-            System.out.println("Name should start with capital letter and need min 3 characters.");
-        return false;
-    }
-
-    static boolean validateEmailId(String email) {
-        String emailRegex = "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-z]{2,4})?$";
-
-        if (Pattern.compile(emailRegex).matcher(email).matches())
-            System.out.println("Valid");
-        else
-            System.out.println("Invalid email id");
-
-        return false;
-    }
-
-    static boolean validateMobileNumber(String number) {
-        String mobNoRegex = "^(\\+91[\\-\\s]?)?[0]?(91)?[789]\\d{9}$";
-
-        if (Pattern.compile(mobNoRegex).matcher(number).matches())
-            System.out.println("Valid");
-        else
-            System.out.println("Mobile number should contain country code follow by space and 10 digit number.");
-
-        return false;
-    }
-    //passwords rule1
-    static boolean validatePassword(String password) {
-        String passwordRegex = "^(?=.*[A-Z]+)(?=.*[0-9]+).{8,}$";
-
-
-        if (Pattern.compile(passwordRegex).matcher(password).matches() &&
-
-                Pattern.compile(".[A-Z].").matcher(password).matches() &&
-                Pattern.compile(".[0-9].").matcher(password).matches() &&
-
-                password.length() - password.replaceAll("\\W", "").length() == 1)
-
-            System.out.println("Valid");
-
-
-        else
-
-            System.out.println("Password should contain min 8 characters, atleast 1 uppercase, atleast 1 numeric number and exactly 1 special character.");
-
-        return false;
-    }
-
-    //passwords rule2
-    static boolean validatePassword2(String password) {
-        String passwordRegex = "^(?=.*[A-Z]+)(?=.*[0-9]+).{8,}$";
-
-
-        if (Pattern.compile(passwordRegex).matcher(password).matches() &&
-
-                Pattern.compile(".[A-Z].").matcher(password).matches() &&
-                Pattern.compile(".[a-z].").matcher(password).matches() &&
-
-                password.length() - password.replaceAll("\\W", "").length() == 1)
-
-            System.out.println("Valid");
-
-
-        else
-
-            System.out.println("Password should atleast 1 upper case");
-        return false;
-    }
-    //passwords rule3
-    static boolean validatePassword3(String password) {
-        String passwordRegex = "^(?=.*[A-Z]+)(?=.*[0-9]+).{8,}$";
-
-
-        if (Pattern.compile(passwordRegex).matcher(password).matches() &&
-
-                Pattern.compile(".[A-Z].").matcher(password).matches() &&
-                Pattern.compile(".[0-9].").matcher(password).matches() &&
-
-                password.length() - password.replaceAll("\\W", "").length() == 1)
-
-            System.out.println("Valid");
-
-
-        else
-
-            System.out.println("Password should atleast 1 numeric");
-        return false;
-    }
-    //passwords rule4
-    static boolean vaildatePassword4(String password) {
-        String passwordRegex = "^(?=.*[A-Z]+)(?=.*[0-9]+).{8,}$";
-
-
-        if (Pattern.compile(passwordRegex).matcher(password).matches() &&
-
-                Pattern.compile(".[A-Z].").matcher(password).matches() &&
-                Pattern.compile(".[0-9].").matcher(password).matches() &&
-
-                password.length() - password.replaceAll("\\W", "").length() == 1)
-
-            System.out.println("Valid");
-
-
-        else
-
-            System.out.println("Password must have 1 special char ");
-        return false;
-    }
-}
